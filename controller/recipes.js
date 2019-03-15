@@ -6,7 +6,7 @@ function getAllRecipes(req, res) {
     console.log('I am getting recipes');
 
     const client = new pg.Client(connectionString);
-    client.conntect(dbErr);
+    client.connect(dbErr);
     client.query(`SELECT * FROM Recipe r 
     JOIN Ingredient_Rec ir 
         ON r.recipe_id = ir.recipe_id 
