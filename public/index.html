@@ -42,9 +42,20 @@
     function loadDoc(){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
-            if (this.readyState == 4) {
+            if (this.readyState == 4 && xhttp.status == 200) {
                 console.log(xhttp.status);
-                document.getElementById("recipes").innerHTML = this.responseText;
+                result = JSON.Parse(this.responseText);
+
+                for (var i=0; i < Object.keys(result).length; i++) {
+                    html = `<div>
+                                <ul>
+                                    <li>` + result[i].recipe_name + `</li>
+                                </ul>
+                            </div>`
+
+                }
+
+                document.getElementById("recipes").innerHTML = html;
             }
         };
         xhttp.open("GET", "/allRecipes", true);
