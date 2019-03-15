@@ -9,7 +9,7 @@ function getAllRecipes(req, res) {
     JOIN Ingredient_Rec ir 
         ON r.recipe_id = ir.recipe_id 
     JOIN Ingredient i 
-        ON ir.ingredient_id = i.ingredient_id`, (err, res) => {
+        ON ir.ingredient_id = i.ingredient_id;`, (err, res) => {
             if (err) {
                 console.log(err)
             } else {
