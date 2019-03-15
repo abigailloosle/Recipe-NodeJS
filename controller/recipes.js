@@ -4,6 +4,7 @@ const connectionString = process.env.DATABASE_URL;
 
 function getAllRecipes(req, res) {
     console.log('I am getting recipes');
+
     const client = new pg.Client(connectionString);
     client.query(`SELECT * FROM Recipe r 
     JOIN Ingredient_Rec ir 
@@ -11,7 +12,7 @@ function getAllRecipes(req, res) {
     JOIN Ingredient i 
         ON ir.ingredient_id = i.ingredient_id;`, (err, res) => {
             if (err) {
-                console.log(err)
+                console.log(err.stack)
             } else {
                 res.json(res.rows)
             }
