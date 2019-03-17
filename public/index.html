@@ -44,16 +44,30 @@
 </body>
 
 <script>
-    function loadDoc(){
+
+    function loadDoc() {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
+        xhttp.onreadystatechange = function () {
             if (this.readyState == 4) {
                 console.log(xhttp.status);
-                document.getElementById("recipes").innerHTML = JSON.Parse(this.responseText);
+                document.getElementById("recipes").innerHTML = this.responseText;
             }
         };
         xhttp.open("GET", "/allRecipes", true);
         xhttp.send();
     }
+
+    
+    // function loadDoc(){
+    //     var xhttp = new XMLHttpRequest();
+    //     xhttp.onreadystatechange = function() {
+    //         if (this.readyState == 4) {
+    //             console.log(xhttp.status);
+    //             document.getElementById("recipes").innerHTML = JSON.Parse(this.responseText);
+    //         }
+    //     };
+    //     xhttp.open("GET", "/allRecipes", true);
+    //     xhttp.send();
+    // }
 </script>
 </html>

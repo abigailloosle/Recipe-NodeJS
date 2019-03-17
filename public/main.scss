@@ -14,4 +14,10 @@ body {
 
 h1 {
     color: $main;
+    font-size: 6em;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+.buttonz button {
+    margin-right: 20px;
 }
