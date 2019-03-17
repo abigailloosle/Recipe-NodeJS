@@ -7,7 +7,8 @@ function getAllRecipes(req, res) {
 
     const client = new pg.Client(connectionString);
     client.connect(dbErr);
-    client.query(`SELECT * FROM Recipe r 
+    client.query(`SELECT r.recipe_name, r.recipe_url, r.recipe_img, r.serving, i.ingredient_name, ir.quantity, ir.unit
+    FROM Recipe r 
     JOIN Ingredient_Rec ir 
         ON r.recipe_id = ir.recipe_id 
     JOIN Ingredient i 
@@ -28,7 +29,6 @@ function dbErr (err) {
         console.log("Successfully connected to DB");
     }
 }
-
 
 module.exports = {
     //what they call it: function name
