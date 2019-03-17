@@ -23,11 +23,16 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <h1>Deciderr</h1>
         <p>Never stew over what to eat again</p>
+        <span>Click here to see what we mean</span>
+        <button class="btn btn-primary" onclick="loadDoc()">Example</button>
+    </div>
+    <div class="container">
+        
         <div class="row">
-            <button href="#" class="btn btn-primary" onclick="loadDoc()">Randomizerr</button>
+            <button href="#" >Randomizerr</button>
             <a href="">Weekly Planerr</a>
             <a href="">Shopping Listerr</a>
         </div>
@@ -42,20 +47,9 @@
     function loadDoc(){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && xhttp.status == 200) {
+            if (this.readyState == 4) {
                 console.log(xhttp.status);
-                result = JSON.Parse(this.responseText);
-
-                for (var i=0; i < Object.keys(result).length; i++) {
-                    html = `<div>
-                                <ul>
-                                    <li>` + result[i].recipe_name + `</li>
-                                </ul>
-                            </div>`
-
-                }
-
-                document.getElementById("recipes").innerHTML = html;
+                document.getElementById("recipes").innerHTML = JSON.Parse(this.responseText);
             }
         };
         xhttp.open("GET", "/allRecipes", true);
