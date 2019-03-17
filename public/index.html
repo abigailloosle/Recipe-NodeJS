@@ -31,7 +31,18 @@
         <a href="" class="btn btn-success-outline">See the code</a>
     </div>
 
-    <div id="recipes"></div>
+    <div id="recipes card">
+        <h2 id="name"></h2>
+        <span id="url"></span>
+        <img id="img">
+        <span id="serve"></span>
+
+        <div class="row">
+            <span id="ing_name"></span>
+            <span id="ing_quan"></span>
+            <span id="ing_unit"></span>
+        </div>
+    </div>
 
 
     <div class="container">
@@ -65,7 +76,13 @@
             if (this.readyState == 4 && this.status == 200) {
                 console.log(xhttp.status);
                 var obj = JSON.Parse(this.responseText);
-                document.getElementById("recipes").innerHTML = obj.recipe_name + ", " + obj.recipe_url;
+                document.getElementById("name").innerHTML = obj.recipe_name
+                document.getElementById("url").innerHTML = obj.recipe_url
+                document.getElementById("img").innerHTML = obj.recipe_img
+                document.getElementById("serve").innerHTML = obj.serving
+                document.getElementById("ing_name").innerHTML = obj.ingredient_name
+                document.getElementById("ing_quan").innerHTML = obj.quantity
+                document.getElementById("ing_unit").innerHTML = obj.unit
             }
         };
         xhttp.open("GET", "/allRecipes", true);
