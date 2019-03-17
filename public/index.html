@@ -75,7 +75,7 @@
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 console.log(xhttp.status);
-                var obj = JSON.Parse(this.responseText);
+                var obj = JSON.parse(this.responseText);
                 document.getElementById("name").innerHTML = obj.recipe_name
                 document.getElementById("url").innerHTML = obj.recipe_url
                 document.getElementById("img").innerHTML = obj.recipe_img
