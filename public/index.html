@@ -28,7 +28,7 @@
         <p>Never stew over what to eat again</p>
         <span>Click here to see what we mean</span>
         <button class="btn btn-success" onclick="loadDoc()">Example</button>
-        <a href="" class="btn btn-success-outline">See the code</a>
+        <a href="" class="btn btn-outline-success">See the code</a>
     </div>
 
     <div id="recipes card">
@@ -56,37 +56,40 @@
 </body>
 
 <script>
-    // // this one works
-    // function loadDoc() {
-    //     var xhttp = new XMLHttpRequest();
-    //     xhttp.onreadystatechange = function () {
-    //         if (this.readyState == 4) {
-    //             console.log(xhttp.status);
-    //             document.getElementById("recipes").innerHTML = this.responseText;
-    //         }
-    //     };
-    //     xhttp.open("GET", "/allRecipes", true);
-    //     xhttp.send();
-    // }
-
-    
-    function loadDoc(){
+    // this one works
+    function loadDoc() {
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
                 console.log(xhttp.status);
-                var obj = JSON.parse(this.responseText);
-                document.getElementById("name").innerHTML = obj.recipe_name
-                document.getElementById("url").innerHTML = obj.recipe_url
-                document.getElementById("img").innerHTML = obj.recipe_img
-                document.getElementById("serve").innerHTML = obj.serving
-                document.getElementById("ing_name").innerHTML = obj.ingredient_name
-                document.getElementById("ing_quan").innerHTML = obj.quantity
-                document.getElementById("ing_unit").innerHTML = obj.unit
+                document.getElementById("recipes").innerHTML = this.responseText;
             }
         };
         xhttp.open("GET", "/allRecipes", true);
         xhttp.send();
     }
+
+    
+    // function loadDoc(){
+    //     var xhttp = new XMLHttpRequest();
+    //     xhttp.onreadystatechange = function() {
+    //         if (this.readyState == 4 && this.status == 200) {
+    //             console.log(xhttp.status);
+    //             var obj = JSON.parse(this.responseText);
+
+    //             for(i)
+    //             document.getElementById("name").innerHTML = obj.recipe_name
+    //             console.log(obj.recipe_name + ", " + obj.)
+    //             document.getElementById("url").innerHTML = obj.recipe_url
+    //             document.getElementById("img").innerHTML = obj.recipe_img
+    //             document.getElementById("serve").innerHTML = obj.serving
+    //             document.getElementById("ing_name").innerHTML = obj.ingredient_name
+    //             document.getElementById("ing_quan").innerHTML = obj.quantity
+    //             document.getElementById("ing_unit").innerHTML = obj.unit
+    //         }
+    //     };
+    //     xhttp.open("GET", "/allRecipes", true);
+    //     xhttp.send();
+    // }
 </script>
 </html>
