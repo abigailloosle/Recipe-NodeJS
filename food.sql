@@ -1,20 +1,20 @@
 -- DROP
 
 -- CREATE TABLE
-CREATE TABLE User
+CREATE TABLE Users
 (
     user_id SERIAL PRIMARY KEY,
     name varchar(100),
     username varchar(30) NOT NULL,
     email varchar(50) NOT NULL,
     password varchar(250) NOT NULL,
-    group_id varchar(50) NOT NULL,
+    group_id int REFERENCES Groups(group_id)
 );
-CREATE TABLE Group
+CREATE TABLE Groups
 (
     group_id SERIAL PRIMARY KEY,
     group_name varchar(15) NOT NULL,
-    group_key varchar(50) NOT NULL
+    group_key varchar(30) NOT NULL
 );
 CREATE TABLE Recipe
 (
@@ -54,7 +54,7 @@ CREATE TABLE Ingredient_Shop
 CREATE TABLE Plan
 (
     plan_id         SERIAL          PRIMARY KEY,
-    date            datetime        NOT NULL
+    date            date            NOT NULL
 );
 CREATE TABLE Plan_Rec
 (
@@ -62,7 +62,7 @@ CREATE TABLE Plan_Rec
     plan_id         int         REFERENCES Plan(plan_id),
     recipe_id       int         REFERENCES Recipe(recipe_id)
 );
-INSERT INTO User
+INSERT INTO Users
 VALUES
     ( DEFAULT, 
     'Abby Loosle',
@@ -78,7 +78,7 @@ VALUES
     'pass',
     1
 );
-INSERT INTO Group
+INSERT INTO Groups
 VALUES
     ( DEFAULT, 
     'loosles',
@@ -107,13 +107,37 @@ VALUES
     ( DEFAULT, 1, 1, 3, 'whole breast'),
     ( DEFAULT, 1, 2, 1, 'jar'),
     ( DEFAULT, 1, 3, 2, 'tsp');
-INSERT INTO Movies
+INSERT INTO ShoppingList
 VALUES
-    ( DEFAULT, 'Get Smart', 2008, 'Maxwell Smart, a highly intellectual but bumbling spy working for the CONTROL agency, is tasked with preventing a terrorist attack from rival spy agency KAOS.', TRUE, TRUE, 110, 3, 3, 1, 1, 2
+(
+    DEFAULT,
+    'Loosle Shopping',
+    1
+);
+INSERT INTO Ingredient_Shop
+VALUES
+(
+    DEFAULT,
+    1,
+    1,
+    2
 ),
-    ( DEFAULT, 'Mama Mia!', 2008, 'The story of a bride-to-be trying to find her real father told using hit songs by the popular 1970s group ABBA.', TRUE, TRUE, 109, 3, 7, 1, 1, 2
-),
-    ( DEFAULT, 'The Dark Knight', 2008, 'When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham. The Dark Knight must accept one of the greatest psychological and physical tests of his ability to fight injustice.', TRUE, TRUE, 152, 3, 2, 1, 1, 2
-),
-    ( DEFAULT, 'Yes Man', 2008, 'A man challenges himself to say "yes" to everything for an entire year.', TRUE, TRUE, 104, 3, 3, 1, 1, 2
+(
+    DEFAULT,
+    1,
+    2,
+    4
+);
+INSERT INTO Plan
+VALUES
+(
+    DEFAULT,
+    '2019-03-14'
+);
+INSERT INTO Plan_Rec
+VALUES
+(
+    DEFAULT,
+    1,
+    1
 );
