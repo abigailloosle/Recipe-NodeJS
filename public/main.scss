@@ -1,6 +1,7 @@
-$light:  #F4F1DE;
-$dark: #3D405B;
-$main: #FF5E5B;
+$light:  #F0F0EF;
+$dark: #003049;
+$main: #C12F2F;
+$othermain: #337CA0;
 $second: #00CECB;
 $cot: #FFED66;
 
@@ -8,14 +9,102 @@ body {
     background-color: $light;
 }
 
-.jumbotron {
-    background-color: $second;
+.navbar {
+    margin-bottom: 20px;
+}
+
+.hero {
+    background-color: $main;
+    margin-bottom: 20px;
+    height: 50vh;
+
+    .main {
+        margin-left: 5%;
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+        p {
+            font-size: 2em;
+            width: 400px;
+        }
+    }
+
+    .redirect {
+        .top, .bottom {
+            height: 50%;
+            padding-top: 20%;
+            padding-left: 10%;
+            font-size: 2em;
+        }
+
+        .top {
+            background-color: #F77F00;
+        }
+
+        .bottom {
+            background-color: #FCBF49;
+        }
+    }
+}
+
+.about {
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+h2 span {
+    text-transform: uppercase;
 }
 
 h1 {
-    color: $main;
+    color: $dark;
     font-size: 6em;
-    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    text-shadow: 4px 4px 6px rgba(242, 241, 241, 0.2)
+}
+
+.recp-example {
+    background-color: $othermain;
+    margin-bottom: 20px;
+    padding: 40px;
+    
+    .examples {
+        margin-left: 5%;
+    }
+    
+    h2{
+        width: 300px;
+        color: white;
+        padding-bottom: 2%;
+    }
+
+    .ex {
+        background-color: white;
+        padding: 15px;
+        height: 190px;
+
+        .row {
+            display: flex;
+            flex-flow: row nowrap;
+            margin-top: -25px;
+            margin-left: 5px;
+        }
+
+        img {
+            width: 150px;
+            height: 210px;
+            overflow: visible;
+        }
+
+        .info {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+    }
+}
+
+footer {
+    background-color: $dark;
+    color: white;
 }
 
 .buttonz button {

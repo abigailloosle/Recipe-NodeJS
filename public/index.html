@@ -21,75 +21,156 @@
     
     <!-- my compiled css -->
     <link rel="stylesheet" href="main.css">
+
+    <script>
+        // function loadDoc() {
+        //     var xhttp = new XMLHttpRequest();
+        //     xhttp.onreadystatechange = function () {
+        //         if (this.readyState == 4) {
+        //             console.log(xhttp.status);
+        //             document.getElementById("recipes").innerHTML = this.responseText;
+        //         }
+        //     };
+        //     xhttp.open("GET", "/allRecipes", true);
+        //     xhttp.send();
+        // }
+        function loadDoc() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4) {
+                        console.log(xhttp.status);
+                        var obj = JSON.parse(this.responseText)
+
+                        let html = ""
+                        for (x in obj) {
+                            html += `<div class="col-sm-4 ex">`
+                            html += `<div class="row">`
+                            html += `<img src="` + obj[x].recipe_url + `" alt="` + obj[x].recipe_name + `">`
+                            html += `<div class="info">`
+                            html += `<h3>` + obj[x].recipe_name + `</h3>`
+                            html += `<p>Time: 1 hour</p>`
+                            html += `<p>Makes: ` + obj[x].serving + `</p>`
+                            html += `<span>Submitted by Abby Loosle</span>`
+                            html += `</div>`
+                            html += `</div>`
+                            html += `</div>`              
+                        }
+
+                        document.getElementById("recipes").innerHTML = html;
+                    }
+                };
+                xhttp.open("GET", "/allRecipes", true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send();
+        }
+    </script>
 </head>
 <body>
-    <div class="jumbotron">
-        <h1>Deciderr</h1>
-        <p>Never stew over what to eat again</p>
-        <span>Click here to see what we mean</span>
-        <button class="btn btn-success" onclick="loadDoc()">Example</button>
-        <a href="" class="btn btn-outline-success">See the code</a>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Deciderr</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="allRecipe.html">View Recipes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-    <div id="recipes" class="card">
-        <h2 id="name"></h2>
-        <span id="url"></span>
-        <img id="img">
-        <span id="serve"></span>
-
-        <div class="row">
-            <span id="ing_name"></span>
-            <span id="ing_quan"></span>
-            <span id="ing_unit"></span>
+    <div class="container-fluid hero d-flex">
+        <div class="main col-8">
+            <h1>Deciderr</h1>
+            <p>Never stew or argue over what to eat again</p>
+        </div>
+        <div class="redirect d-flex flex-column col">
+            <span class="top">
+                <a href="">Set up an account</a>
+            </span>
+            <span class="bottom">
+                <a href="">View Recipes</a>
+            </span>
         </div>
     </div>
-
 
     <div class="container">
-        <div class="row buttonz">
-            <button href="#" class="btn btn-primary">Randomizerr</button>
-            <button href="" class="btn btn-primary">Weekly Planerr</button>
-            <button href="" class="btn btn-primary">Shopping Listerr</button>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card about">
+                    <h2>Show a random recipe</h2>
+                    <p>Lorem ipsum text goes here about how great and important this all is and how you can use it to make your life better bla
+                    bla bla</p>
+                    <a href="" class="btn btn-outline-success">See more</a>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="card about">
+                    <h2>Look for a recipe based on cravings</h2>
+                    <p>Lorem ipsum text goes here about how great and important this all is and how you can use it to make your life better
+                        bla bla bla</p>
+                    <a href="" class="btn btn-outline-success">See more</a>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="card about">
+                    <h2>Make weekly meal plans</h2>
+                    <p>Goals.Lorem ipsum text goes here about how great and important this all is and how you can use it to make your life better
+                        bla bla bla</p>
+                    <a href="" class="btn btn-outline-success">See more</a>
+                </div>
+            </div>
         </div>
     </div>
+
+    <div class="container-fluid recp-example">
+        <div class="examples">
+            <h2>Some of what makes us so good is <span>your recipes.</span></h2>
+
+            <div class="row d-flex justify-content-around" id ="recipes">
+                <script>loadDoc();</script>
+            </div>
+        </div>
+    </div>
+
+    <footer class="page-footer font-small unique-color-dark pt-4">
+
+        <!-- Footer Elements -->
+        <div class="container">
+
+            <!-- Call to action -->
+            <ul class="list-unstyled list-inline text-center py-2">
+                <li class="list-inline-item">
+                    <h5 class="mb-1">Register for free</h5>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#!" class="btn btn-outline-white btn-rounded">Sign up!</a>
+                </li>
+            </ul>
+            <!-- Call to action -->
+
+        </div>
+        <!-- Footer Elements -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+            <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+
     
 </body>
-
-<script>
-    // this one works
-    function loadDoc() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4) {
-                console.log(xhttp.status);
-                document.getElementById("recipes").innerHTML = this.responseText;
-            }
-        };
-        xhttp.open("GET", "/allRecipes", true);
-        xhttp.send();
-    }
-
-    
-    // function loadDoc(){
-    //     var xhttp = new XMLHttpRequest();
-    //     xhttp.onreadystatechange = function() {
-    //         if (this.readyState == 4 && this.status == 200) {
-    //             console.log(xhttp.status);
-    //             var obj = JSON.parse(this.responseText);
-
-    //             for(i)
-    //             document.getElementById("name").innerHTML = obj.recipe_name
-    //             console.log(obj.recipe_name + ", " + obj.)
-    //             document.getElementById("url").innerHTML = obj.recipe_url
-    //             document.getElementById("img").innerHTML = obj.recipe_img
-    //             document.getElementById("serve").innerHTML = obj.serving
-    //             document.getElementById("ing_name").innerHTML = obj.ingredient_name
-    //             document.getElementById("ing_quan").innerHTML = obj.quantity
-    //             document.getElementById("ing_unit").innerHTML = obj.unit
-    //         }
-    //     };
-    //     xhttp.open("GET", "/allRecipes", true);
-    //     xhttp.send();
-    // }
-</script>
 </html>

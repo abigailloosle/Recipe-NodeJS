@@ -1,13 +1,72 @@
 body {
-  background-color: #F4F1DE; }
+  background-color: #F0F0EF; }
 
-.jumbotron {
-  background-color: #00CECB; }
+.navbar {
+  margin-bottom: 20px; }
+
+.hero {
+  background-color: #C12F2F;
+  margin-bottom: 20px;
+  height: 50vh; }
+  .hero .main {
+    margin-left: 5%;
+    padding-top: 40px;
+    padding-bottom: 40px; }
+    .hero .main p {
+      font-size: 2em;
+      width: 400px; }
+  .hero .redirect .top, .hero .redirect .bottom {
+    height: 50%;
+    padding-top: 20%;
+    padding-left: 10%;
+    font-size: 2em; }
+  .hero .redirect .top {
+    background-color: #F77F00; }
+  .hero .redirect .bottom {
+    background-color: #FCBF49; }
+
+.about {
+  margin-bottom: 20px;
+  padding: 20px; }
+
+h2 span {
+  text-transform: uppercase; }
 
 h1 {
-  color: #FF5E5B;
+  color: #003049;
   font-size: 6em;
-  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
+  text-shadow: 4px 4px 6px rgba(242, 241, 241, 0.2); }
+
+.recp-example {
+  background-color: #337CA0;
+  margin-bottom: 20px;
+  padding: 40px; }
+  .recp-example .examples {
+    margin-left: 5%; }
+  .recp-example h2 {
+    width: 300px;
+    color: white;
+    padding-bottom: 2%; }
+  .recp-example .ex {
+    background-color: white;
+    padding: 15px;
+    height: 190px; }
+    .recp-example .ex .row {
+      display: flex;
+      flex-flow: row nowrap;
+      margin-top: -25px;
+      margin-left: 5px; }
+    .recp-example .ex img {
+      width: 150px;
+      height: 210px;
+      overflow: visible; }
+    .recp-example .ex .info {
+      margin-top: 10px;
+      margin-left: 10px; }
+
+footer {
+  background-color: #003049;
+  color: white; }
 
 .buttonz button {
   margin-right: 20px; }

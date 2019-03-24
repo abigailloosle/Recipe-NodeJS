@@ -22,7 +22,8 @@ CREATE TABLE Recipe
     recipe_name varchar(100)    NOT NULL,
     recipe_url  varchar(200),
     recipe_img  varchar(200),
-    serving     int             NOT NULL
+    serving     int             NOT NULL,
+    time        int             NOT NULL
 );
 CREATE TABLE Ingredient
 (
