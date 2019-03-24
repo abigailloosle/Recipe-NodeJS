@@ -51,31 +51,61 @@
         <h1>Add me</h1>
     </div>
 
-    <label for="recipe_name">Recipe Name: </label>
-    <input type="text" for="recipe_name" id="name" required>
+    <div class="container">
 
-    <label for="recipe_url">Url: </label>
-    <input type="text" for="recipe_url" id="url">
+        <div class="form-group">
+            <label for="recipe_name">Recipe Name: </label>
+            <input type="text" for="recipe_name" id="name" required>
+        </div>
+        <div class="form-group">
+            <label for="recipe_url">Url: </label>
+            <input type="text" for="recipe_url" id="url">
+        </div>
+        <div class="form-group">
+            <label for="recipe_img">Image link: </label>
+            <input type="text" for="recipe_img" id="img">
+        </div>
+        <div class="form-group">
+            <label for="recipe_serve">Serving: </label>
+            <input type="text" for="recipe_serve" id="new_serve">
+        </div>
+        <div class="form-inline">
+            <div class="form-group mb-2">
+                <label for="ingredient">Ingredient: </label>
+                <input type="text" for="ingredient" id="new_ing">
+            </div>
+            <div class="form-group mb-2">
+                <label for="amount">Amount: </label>
+                <input type="text" for="amount" id="new_amount">
+            </div>
+            <div class="form-group mb-2">
+                <label for="unit">Choose Unit: </label>
+                <input type="text" for="unit" id="new_unit">
+            </div>
+            
+            <button onclick="add_ing()">Add this Ingredient</button>
+            <div class="ingredients">
+                <ul id="more_ing"></ul>
+            </div>
+        </div>
+        <div class="form-group"></div>
+        <div class="form-group"></div>
+        <div class="form-group"></div>
 
-    <label for="recipe_img">Image link: </label>
-    <input type="text" for="recipe_img" id="img">
+    </div>
+
+    
+
+    
+
+    
 
     <!-- <label for="recipe_time">Time: </label>
     <input type="text" for="recipe_time" id="time"> -->
     
-    <label for="recipe_serve">Serving: </label>
-    <input type="text" for="recipe_serve" id="new_serve">
+    
 
-    <label for="ingredient">Ingredient: </label>
-    <input type="text" for="ingredient" id="new_ing">
-    <label for="amount">Amount: </label>
-    <input type="text" for="amount" id="new_amount">
-    <label for="unit">Choose Unit: </label>
-    <input type="text" for="unit" id="new_unit">
-    <button onclick="add_ing()">Add this Ingredient</button>
-    <div class="ingredients">
-        <ul id="more_ing"></ul>
-    </div>
+    
 
     <label for="recipe_directions">Directions: </label>
     <input type="text" for="recipe_directions" id="direct">
