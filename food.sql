@@ -13,8 +13,8 @@ CREATE TABLE Users
 CREATE TABLE Groups
 (
     group_id SERIAL PRIMARY KEY,
-    group_name varchar(15) NOT NULL,
-    group_key varchar(30) NOT NULL
+    group_name varchar(15),
+    group_key varchar(250)
 );
 CREATE TABLE Recipe
 (

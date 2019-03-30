@@ -10,7 +10,7 @@ const connectionString = process.env.DATABASE_URL;
 //     JOIN Ingredient i 
 //         ON ir.ingredient_id = i.ingredient_id;`
 
-
+// On home page load two recipes to populate the bottom
 function getAllRecipes(req, res) {
     console.log('I am getting recipes');
 
@@ -37,7 +37,6 @@ function dbErr (err) {
 }
 
 function addRecipe(req, res) {
-    console.log(req)
     var name = req.body.name;
     var url = req.body.url;
     var image = req.body.img;
@@ -57,9 +56,11 @@ function addRecipe(req, res) {
             if (err) {
                 console.log(err.stack)
             } else {
-                console.log(res.rows[0])
+                console.log("inserted")
             }
-        });
+        })
+        
+        res.redirect("index.html")
 }
 
 // function addIngredient(req, res) {

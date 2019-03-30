@@ -23,17 +23,6 @@
     <link rel="stylesheet" href="main.css">
 
     <script>
-        // function loadDoc() {
-        //     var xhttp = new XMLHttpRequest();
-        //     xhttp.onreadystatechange = function () {
-        //         if (this.readyState == 4) {
-        //             console.log(xhttp.status);
-        //             document.getElementById("recipes").innerHTML = this.responseText;
-        //         }
-        //     };
-        //     xhttp.open("GET", "/allRecipes", true);
-        //     xhttp.send();
-        // }
         function loadDoc() {
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
@@ -49,7 +38,7 @@
                             html += `<div class="info">`
                             html += `<h3>` + obj[x].recipe_name + `</h3>`
                             html += `<p>Time: 1 hour</p>`
-                            html += `<p>Makes: ` + obj[x].serving + `</p>`
+                            html += `<p>Makes: ` + obj[x].serving + ` servings</p>`
                             html += `<span>Submitted by Abby Loosle</span>`
                             html += `</div>`
                             html += `</div>`
@@ -73,7 +62,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="index.html">Home
                     </a>
@@ -85,6 +74,14 @@
                     <a class="nav-link" href="#">Pricing</a>
                 </li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!-- if logged in -->
+                <li class="nav-item nav-bump"><a href="account.html">Welcome USERNAME</a>  </li>
+                <li><a href="/logout">Log Out</a></li>
+                <!-- if not logged in -->
+                <li class="nav-item">  <a class="nav-link" href="register.html">Sign up</a>  </li>
+                <li class="nav-item">  <a class="nav-link" href="login.html">Log in</a>  </li>
+            </ul>
         </div>
     </nav>
 
@@ -95,10 +92,10 @@
         </div>
         <div class="redirect d-flex flex-column col">
             <span class="top">
-                <a href="">Set up an account</a>
+                <a href="register.html">Set up an account</a>
             </span>
             <span class="bottom">
-                <a href="">View Recipes</a>
+                <a href="login.html">View Recipes</a>
             </span>
         </div>
     </div>
