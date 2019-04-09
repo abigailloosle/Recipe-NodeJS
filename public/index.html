@@ -36,7 +36,7 @@
                             html += `<div class="row">`
                             html += `<img src="` + obj[x].recipe_url + `" alt="` + obj[x].recipe_name + `">`
                             html += `<div class="info">`
-                            html += `<h3>` + obj[x].recipe_name + `</h3>`
+                            html += `<h3><a href="/details/` + obj[x].recipe_id  + `">` + obj[x].recipe_name + `</a></h3>`
                             html += `<p>Time: 1 hour</p>`
                             html += `<p>Makes: ` + obj[x].serving + ` servings</p>`
                             html += `<span>Submitted by Abby Loosle</span>`
@@ -56,7 +56,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Deciderr</a>
+        <a class="navbar-brand" href="index.html">Deciderr</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -74,14 +74,6 @@
                     <a class="nav-link" href="#">Pricing</a>
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <!-- if logged in -->
-                <li class="nav-item nav-bump"><a href="account.html">Welcome USERNAME</a>  </li>
-                <li><a href="/logout">Log Out</a></li>
-                <!-- if not logged in -->
-                <li class="nav-item">  <a class="nav-link" href="register.html">Sign up</a>  </li>
-                <li class="nav-item">  <a class="nav-link" href="login.html">Log in</a>  </li>
-            </ul>
         </div>
     </nav>
 
@@ -92,10 +84,10 @@
         </div>
         <div class="redirect d-flex flex-column col">
             <span class="top">
-                <a href="register.html">Set up an account</a>
+                <a href="random.html">To the Deciderr</a>
             </span>
             <span class="bottom">
-                <a href="login.html">View Recipes</a>
+                <a href="allRecipe.html">View Recipes</a>
             </span>
         </div>
     </div>

@@ -76,4 +76,13 @@ footer {
   margin-bottom: 40px;
   padding-bottom: 20px; }
 
+#edit {
+  display: none; }
+
+.random {
+  width: 40%; }
+
+#recipes {
+  margin-top: 30px; }
+
 /*# sourceMappingURL=main.css.map */

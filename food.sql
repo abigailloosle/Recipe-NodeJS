@@ -23,13 +23,13 @@ CREATE TABLE Recipe
     recipe_url  varchar(200),
     recipe_img  varchar(200),
     serving     int             NOT NULL,
-    time        int             NOT NULL
+    time        int             NOT NULL,
+    directions varchar(1500),
 );
 CREATE TABLE Ingredient
 (
     ingredient_id SERIAL PRIMARY KEY,
-    ingredient_name varchar(100) NOT NULL,
-    icon varchar(100)
+    ingredient_name varchar(100) NOT NULL
 );
 CREATE TABLE Ingredient_Rec
 (

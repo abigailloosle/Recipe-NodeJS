@@ -27,7 +27,6 @@ function randomRec (req, res) {
 }
 
 
-
 function searchRec (req, res) {
     var param = "%" + req.query.i + "%";
     console.log(param)
@@ -37,13 +36,13 @@ function searchRec (req, res) {
     client.connect(dbErr);
     const query = {
         text: `SELECT DISTINCT r.recipe_name, r.recipe_url, r.recipe_img, r.serving
-                FROM Recipe r 
-                JOIN Ingredient_Rec ir 
-                    ON r.recipe_id = ir.recipe_id 
-                JOIN Ingredient i 
-                    ON ir.ingredient_id = i.ingredient_id
+                FROM Recipe r
+                JOIN Ingredient_Rec ir
+                ON r.recipe_id = ir.recipe_id
+                JOIN Ingredient i
+                ON ir.ingredient_id = i.ingredient_id
                 WHERE r.recipe_name LIKE $1 OR i.ingredient_name LIKE $1
-                GROUP BY r.recipe_name, r.recipe_url, r.recipe_img, r.serving;`,
+                GROUP BY r.recipe_name, r.recipe_url, r.recipe_img, r.serving`,
         values: [param]
     }
     console.log("I've queried")
@@ -55,11 +54,10 @@ function searchRec (req, res) {
             }
         });
 }
-2087108744
+
 function searchTime (req, res) {
 
 }
-
 module.exports = {
     //what they call it: function name
     randomRec: randomRec,

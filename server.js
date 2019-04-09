@@ -22,20 +22,32 @@ app.use(session({
     reseave: true
 }));
 
-
-app.post('/addRecipe', c_rec.addRecipe);
-
-app.get('/allRecipes', c_rec.getAllRecipes);
-app.get('/randomizer', c_rand.randomRec);
-app.get('/searchRecipe', c_rand.searchRec);
+// account, could log in, but decided to focus on recipe/ingredient manipulation instead
 app.post('/login', c_account.login)
 app.post('/logout', c_account.logout)
 app.post('/register', c_account.register)
 
-app.get('/decider', function(req, res) {
-    console.log("arriving");
+// show recipes on home page
+app.get('/allRecipes', c_rec.getAllRecipes)
+
+// show recipes on view page
+app.get('/moreRecipes', c_rec.moreRecipes)
+
+// recipe specifics
+app.get('/details/:id', c_rec.getDetails)
+app.get('/editRecipe/:id', c_rec.editRecipe)
+app.get('/deleteRecipe/:id', c_rec.deleteRecipe)
+
+// add a new recipe
+app.post('/addRecipe', c_rec.addRecipe)
+
+// deciderr
+app.get('/decider', function (req, res) {
     res.render("deciderr");
 })
+app.get('/randomizer', c_rand.randomRec)
+app.get('/searchRecipe', c_rand.searchRec)
+
 
 app.listen(port, function () {
     console.log("Server listening on port:" + port)
